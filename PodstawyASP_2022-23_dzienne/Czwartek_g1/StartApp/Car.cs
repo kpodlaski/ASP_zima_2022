@@ -40,7 +40,7 @@ namespace StartApp
 
         class CompareCarByProductionYear : IComparer<Car>
         {
-            public int Compare([AllowNull] Car x, [AllowNull] Car y)
+            public int Compare(Car x, Car y)
             {
                 return x.ProductionYear - y.ProductionYear;
             }

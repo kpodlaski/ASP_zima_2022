@@ -19,5 +19,23 @@ namespace StartApp
         {
             return "właściciel: " + Owner;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Vehicle))
+            {
+                return false;
+            }
+            Vehicle v = (Vehicle)obj;
+            return Owner.Equals(v.Owner) && ProductionYear == v.ProductionYear;
+        }
+
+
+
+
+
+
+
+        
     }
 }
