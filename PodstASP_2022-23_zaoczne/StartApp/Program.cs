@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StartApp
 {
@@ -25,6 +26,31 @@ namespace StartApp
             Console.WriteLine("====================");
             Console.WriteLine(porownaj(o2, s2));
             Console.WriteLine(porownaj(s2, o2));
+            Console.WriteLine("====================");
+            Console.WriteLine("====================");
+
+            List<Osoba> osoby = new List<Osoba>();
+            osoby.Add(o);
+            osoby.Add(new Osoba("Adam", "Adamski"));
+            osoby.Add(new Student("Dominika", "Domańska"));
+            Console.WriteLine(osoby.Count);
+            foreach (Osoba os in osoby)
+            {
+                Console.WriteLine(os);
+            }
+            osoby.Sort();
+            Console.WriteLine("===po sortowaniu=====");
+            foreach (Osoba os in osoby)
+            {
+                Console.WriteLine(os);
+            }
+            osoby.Sort(Osoba.GetComparerByNameLength());
+            Console.WriteLine("===sort inaczej=====");
+            foreach (Osoba os in osoby)
+            {
+                Console.WriteLine(os);
+            }
+
         }
 
         static bool porownaj(Osoba o1, Osoba o2)

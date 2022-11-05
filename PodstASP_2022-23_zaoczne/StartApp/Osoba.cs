@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace StartApp
 {
-    class Osoba
+    class Osoba : IComparable
     {
         public String Imie { private set; get; }
-        public String Nazwisko;
+        private String Nazwisko;
 
         public Osoba(string Imie, string nazwisko)
         {
@@ -29,6 +30,29 @@ namespace StartApp
             }
             else return false;
 
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (!(obj is Osoba))
+                return 0;
+            Osoba o2 = (Osoba) obj;
+            return Nazwisko.CompareTo(o2.Nazwisko);
+        }
+
+        static public  IComparer<Osoba> GetComparerByNameLength()
+        {
+            return new CompareByNameLength();
+        }
+        
+        class CompareByNameLength : IComparer<Osoba>
+        {
+            public int Compare(Osoba x, Osoba y)
+            {
+                int l1 = x.Nazwisko.Length;
+                int l2 = y.Nazwisko.Length;
+                return -(l1 - l2);
+            }
         }
     }
 }
