@@ -50,7 +50,45 @@ namespace StartApp
             {
                 Console.WriteLine(os);
             }
-
+            Console.WriteLine("====================");
+            Console.WriteLine(osoby[2]);
+            HashSet<Osoba> zbiorOsob = new HashSet<Osoba>();
+            for (int i=0; i<osoby.Count; i++)
+            {
+                zbiorOsob.Add(osoby[i]);
+            }
+            Console.WriteLine("====================");
+            Console.WriteLine("Rozmiar zbioru");
+            Console.WriteLine(zbiorOsob.Count);
+            zbiorOsob.Add(o);
+            Console.WriteLine("Dodajemy obiekt ponownie");
+            Console.WriteLine("Rozmiar zbioru");
+            Console.WriteLine(zbiorOsob.Count);
+            Console.WriteLine("Dodajemy obiekt równy innemu ze zbioru");
+            Console.WriteLine("Rozmiar zbioru");
+            zbiorOsob.Add(new Osoba("Karolina", "Karolewska"));
+            Console.WriteLine(zbiorOsob.Count);
+            Console.WriteLine("Dodajemy obiekt o takim samych hashu co element ze zbioru");
+            Console.WriteLine("Rozmiar zbioru");
+            zbiorOsob.Add(new Osoba("Karolewska", "Karolina"));
+            Console.WriteLine(zbiorOsob.Count);
+            foreach (Osoba os in zbiorOsob)
+            {
+                Console.WriteLine(os);
+            }
+            Dictionary<Osoba, double> pensjeOsob = new Dictionary<Osoba, double>();
+            foreach (Osoba os in zbiorOsob)
+            {
+                pensjeOsob.Add(os, os.Imie.Length * 102.2);
+            }
+            Console.WriteLine("====================");
+            Console.WriteLine(pensjeOsob[o]);
+            Console.WriteLine("--------------------");
+            foreach (Osoba os in pensjeOsob.Keys)
+            {
+                Console.WriteLine(os +" ==> "+ pensjeOsob[os]+ "$" );
+            }
+            
         }
 
         static bool porownaj(Osoba o1, Osoba o2)

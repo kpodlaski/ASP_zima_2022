@@ -29,7 +29,11 @@ namespace StartApp
                 return Imie.Equals(o.Imie) && Nazwisko.Equals(o.Nazwisko);
             }
             else return false;
+        }
 
+        public override int GetHashCode()
+        {
+            return Imie.GetHashCode() + Nazwisko.GetHashCode(); 
         }
 
         public int CompareTo(object obj)
