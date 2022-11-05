@@ -72,5 +72,17 @@ namespace StartApp
             //Odczyt();
             OdczytZWWW();
         }
+
+        //TODO: 
+        /*
+         * 1 policzyć ile razy na stronie występuje znakcznik <a 
+         * 1.1 stworzyć listę linków przypisanych do znaczników <a 
+         * 1.2 zbudować słownik (dict) wiążący tekst linku z adresem (text -> link)
+         * 
+         * 2. znaleźć wszystkie obrazki na stronie <img ...>
+         * 2.1 zrobić listę adresów obrazków na stronie
+         * 2.2 znaleźć wszystkie obrazki będce jednoczesnie linkami <a ....><img ...>... </a>
+         *     zbudować słownik adres obrazku i link na nim oparty
+         */
     }
 }
